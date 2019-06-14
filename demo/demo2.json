@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "be0f1952-79e1-49b6-93e1-3b531aff16e5",
+		"name": "Elasticsearch Demo 2: NRT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index new document (generated ID)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "246e8a67-47cb-4193-b68a-a043123303b0",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"let successful = jsonData._shards.successful;",
+							"tests[\"Successful\"] = successful >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"city\": \"Tanabi\",\n\t\"state\": \"SP\",\n\t\"country\": \"BR\",\n\t\"population\": 25000\n}"
+				},
+				"url": {
+					"raw": "localhost:9200/cities/_doc",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"cities",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a61b44a8-5c74-46c3-ba41-ca0482493c6c",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Hits > 0\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.json().hits.total).to.above(0);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:9200/cities/_search?q=city:Tanabi",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"cities",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "city:Tanabi"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6300988d-d2e1-48db-be55-6639d9688893",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "357e5e86-0ec3-45f8-a4a5-8a2473c43f02",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

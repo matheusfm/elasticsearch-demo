@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "bdf6dbec-b1ba-482a-b667-d1d99acdeb50",
+		"name": "Elasticsearch Demo 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "_cat nodes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:9200/_cat/nodes?v",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"nodes"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						},
+						{
+							"key": "format",
+							"value": "json",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "_cat indices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:9200/_cat/indices?v",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"indices"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						},
+						{
+							"key": "format",
+							"value": "json",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:9200/shakespeare/_search?",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"shakespeare",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "speaker:EDWARD",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "full-text search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:9200/shakespeare/_search?q=conference",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"shakespeare",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "conference"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search by speaker",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:9200/shakespeare/_search?q=speaker:EDWARD",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"shakespeare",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "speaker:EDWARD"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c6f58be7-5e34-4c69-9659-7282234f6b07",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c4df098b-1614-426b-9b96-e0f015914ab4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
