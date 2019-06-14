@@ -74,6 +74,40 @@
 			"response": []
 		},
 		{
+			"name": "_cat shards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:9200/_cat/shards?v",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"shards"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						},
+						{
+							"key": "format",
+							"value": "json",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "search",
 			"request": {
 				"method": "GET",
